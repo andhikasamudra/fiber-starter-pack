@@ -1,0 +1,6 @@
+export DB_USER=""
+export DB_PASS=""
+export DB_HOST=""
+export DB_PORT=""
+export DB_NAME=""
+export DBUrl="postgres://username:password@localhost:5432/dbname?sslmode=disable"

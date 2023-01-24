@@ -1,0 +1,1 @@
+migrate -database ${DBUrl} -lock-timeout 30 -path migrations up
