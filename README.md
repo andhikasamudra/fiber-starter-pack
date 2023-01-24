@@ -48,3 +48,5 @@ you can just plug the `domain` folder and put it in new service and you ready to
 ### Todo
 - [ ] add new event driven connection
 - [ ] add another domain layer and try communicate with event
+- [ ] add dockerfile to allow run with docker
+- [ ] add `docker-compose.yaml` to easier run with docker locally
