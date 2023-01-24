@@ -24,6 +24,7 @@ go run main.go
 
 ```shell
 .
+├── ...
 └── pkg/
     └── domainName/
         ├── dto
