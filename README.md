@@ -51,3 +51,4 @@ you can just plug the `domain` folder and put it in new service and you ready to
 - [ ] add another domain layer and try communicate with event
 - [ ] add dockerfile to allow run with docker
 - [ ] add `docker-compose.yaml` to easier run with docker locally
+- [ ] add `auth` domain to represent authorization example
