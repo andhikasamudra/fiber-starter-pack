@@ -1,12 +1,13 @@
 package main
 
 import (
-	"fiber-starter-pack/config"
-	"fiber-starter-pack/pkg/book"
+	"log"
+
+	"github.com/andhikasamudra/fiber-starter-pack/config"
+	"github.com/andhikasamudra/fiber-starter-pack/pkg/book"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/uptrace/bun/extra/bundebug"
-	"log"
 )
 
 func main() {

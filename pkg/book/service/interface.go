@@ -2,8 +2,9 @@ package service
 
 import (
 	"context"
-	"fiber-starter-pack/dto"
-	"fiber-starter-pack/pkg/book/models"
+
+	"github.com/andhikasamudra/fiber-starter-pack/pkg/book/dto"
+	"github.com/andhikasamudra/fiber-starter-pack/pkg/book/models"
 	"github.com/gofiber/fiber/v2"
 )
 

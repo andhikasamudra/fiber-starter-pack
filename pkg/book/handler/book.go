@@ -1,14 +1,15 @@
 package handler
 
 import (
-	"fiber-starter-pack/dto"
-	"fiber-starter-pack/internal"
-	"fiber-starter-pack/pkg/book/service"
-	"github.com/gofiber/fiber/v2"
 	"net/http"
+
+	"github.com/andhikasamudra/fiber-starter-pack/internal"
+	"github.com/andhikasamudra/fiber-starter-pack/pkg/book/dto"
+	"github.com/andhikasamudra/fiber-starter-pack/pkg/book/service"
+	"github.com/gofiber/fiber/v2"
 )
 
-type HandlerDependency struct {
+type Dependency struct {
 	BookService service.BookServiceInterface
 }
 
@@ -16,7 +17,7 @@ type Handler struct {
 	BookService service.BookServiceInterface
 }
 
-func NewHandler(d HandlerDependency) *Handler {
+func NewHandler(d Dependency) *Handler {
 	return &Handler{
 		BookService: d.BookService,
 	}

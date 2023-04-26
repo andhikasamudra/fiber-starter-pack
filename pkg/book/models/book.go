@@ -2,7 +2,8 @@ package models
 
 import (
 	"context"
-	"fiber-starter-pack/utils"
+
+	"github.com/andhikasamudra/fiber-starter-pack/utils"
 	"github.com/uptrace/bun"
 )
 

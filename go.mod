@@ -1,4 +1,4 @@
-module fiber-starter-pack
+module github.com/andhikasamudra/fiber-starter-pack
 
 go 1.19
 
