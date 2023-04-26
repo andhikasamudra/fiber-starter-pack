@@ -2,12 +2,13 @@ package service
 
 import (
 	"context"
-	"fiber-starter-pack/dto"
-	"fiber-starter-pack/pkg/book/models"
+
+	"github.com/andhikasamudra/fiber-starter-pack/pkg/book/dto"
+	"github.com/andhikasamudra/fiber-starter-pack/pkg/book/models"
 	"github.com/gofiber/fiber/v2"
 )
 
-type ServiceDependency struct {
+type Dependency struct {
 	BookModel models.BookInterface
 }
 
@@ -15,7 +16,7 @@ type BookService struct {
 	BookModel models.BookInterface
 }
 
-func NewService(d ServiceDependency) *BookService {
+func NewService(d Dependency) *BookService {
 	return &BookService{
 		BookModel: d.BookModel,
 	}

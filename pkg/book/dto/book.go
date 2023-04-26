@@ -2,6 +2,7 @@ package dto
 
 import (
 	"fmt"
+
 	"github.com/google/uuid"
 	"github.com/pkg/errors"
 )
@@ -21,7 +22,7 @@ func (r *CreateBookRequest) Validate() error {
 	}
 
 	if len(emptyFields) > 0 {
-		return errors.New(fmt.Sprintf("field is required ", emptyFields))
+		return errors.New(fmt.Sprintf("field is required %s", emptyFields))
 	}
 
 	return nil
