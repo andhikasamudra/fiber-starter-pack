@@ -1,0 +1,50 @@
+version: '3.8'
+services:
+  app:
+    container_name: fsp_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    ports:
+      - "8080:8080"
+      - "50001:50001"
+    depends_on:
+      - db
+    restart: always
+  db:
+    container_name: fsp_db
+    image: postgres:alpine
+    environment:
+      - POSTGRES_USER=${POSTGRES_DB_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_DB_PASS}
+      - POSTGRES_DB=${POSTGRES_DB_NAME}
+    ports:
+      - "5432:5432"
+    restart: always
+  #    volumes:
+  #      - db_data:/var/lib/postgresql/data
+
+  redis:
+    container_name: fsp_redis
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    restart: always
+  #    volumes:
+  #      - redis_data:/data
+
+  migrate:
+    image: migrate/migrate
+    depends_on:
+      - db
+    env_file:
+      - .env
+    volumes:
+      - ./migrations/postgres:/migrations  # Mount the directory containing migrations
+    command: [ "-path", "/migrations", "-database", "postgres://${POSTGRES_DB_USER}:${POSTGRES_DB_PASS}@fsp_db:5432/${POSTGRES_DB_NAME}?sslmode=disable", "up" ]
+
+volumes:
+  db_data:
+  redis_data:

@@ -1,0 +1,21 @@
+syntax = "proto3";
+package AuthService;
+
+option go_package="github.com/andhikasamudra/fiber-starter-pack";
+
+message GetUserProfileRequest {
+  string userGuid = 1;
+}
+
+message GetUserProfileResponse {
+  string email = 1;
+  bool isActive = 2;
+  repeated string roles = 3;
+  string picName = 4;
+  string phoneNumber = 5;
+  string companyName = 6;
+}
+
+service AuthService {
+  rpc GetUserProfile(GetUserProfileRequest) returns (GetUserProfileResponse);
+}

@@ -8,8 +8,8 @@ import (
 )
 
 type CreateBookRequest struct {
-	Title  string `json:"title"`
-	Author string `json:"author"`
+	Title  string `json:"title" validate:"required"`
+	Author string `json:"author" validate:"required"`
 }
 
 func (r *CreateBookRequest) Validate() error {
@@ -32,4 +32,22 @@ type GetBookResponse struct {
 	GUID   uuid.UUID `json:"guid"`
 	Title  string    `json:"title"`
 	Author string    `json:"author"`
+}
+
+type UpdateBookRequest struct {
+	GUID   uuid.UUID
+	Title  string `json:"title"`
+	Author string `json:"author"`
+}
+
+func (r *UpdateBookRequest) GetUpdatedColumns() []string {
+	var updatedFields []string
+	if r.Title != "" {
+		updatedFields = append(updatedFields, "title")
+	}
+	if r.Author != "" {
+		updatedFields = append(updatedFields, "author")
+	}
+
+	return updatedFields
 }

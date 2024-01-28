@@ -1,6 +1,6 @@
 ## Fiber Starter Pack
 
-build with [Fiber](https://gofiber.io/) and [Bun](https://bun.uptrace.dev/)
+build with [Fiber](https://gofiber.io/) and [Bun](https://bun.uptrace.dev/) and [GRPC](https://grpc.io/)
 
 setup to your local env first
 
@@ -19,6 +19,13 @@ to run
 
 ```shell
 go run main.go
+```
+
+OR
+
+using docker compose 
+```shell
+docker-compose up
 ```
 
 ## Architecture
@@ -41,14 +48,7 @@ in `pkg` there is `domain` folder to grouped each related domain modules
 such as `services`, `handler`, `models`, `dto`
 the `route.go` file will be represent of each domain api routes. 
 
-#### why every domain should have different routes ?
+### Why every domain should have different routes ?
 
-the only i think that can do is whenever you need to separate this monolithic service into multiple services
-you can just plug the `domain` folder and put it in new service and you ready to run
-
-### Todo
-- [ ] add new event driven connection
-- [ ] add another domain layer and try communicate with event
-- [ ] add dockerfile to allow run with docker
-- [ ] add `docker-compose.yaml` to easier run with docker locally
-- [ ] add `auth` domain to represent authorization example
+well the perfect case is when you need to separate this domain into multiple services 
+you can just "put this out" into new services
