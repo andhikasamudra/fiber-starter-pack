@@ -1,11 +1,13 @@
 ## Build
-FROM golang:1.19.0-alpine AS builder
+FROM golang:1.21.0-alpine AS builder
 
 WORKDIR /build
 
 COPY . .
 
-RUN GOOS=linux go build -mod=vendor -ldflags="-s -w" -o app
+RUN go mod vendor
+
+RUN env GOOS=linux GOARCH=amd64 go build -mod=vendor -ldflags="-s -w" -o app
 
 ## Deploy
 FROM alpine
@@ -16,6 +18,6 @@ COPY --from=builder /build .
 
 EXPOSE 8080
 
-USER nonroot:nonroot
+RUN chmod +x ./app
 
 CMD ["./app"]
